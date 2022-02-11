@@ -33,8 +33,8 @@ class ScheduleController extends Controller
             // load data default
             else
             {
-                $schedule = Schedule::orderBy('date_start', 'desc');
-                // $schedule = Schedule::all();
+                #$schedule = Schedule::orderBy('date_start', 'desc');
+                $schedule = Schedule::whereDate ('date_start',date('Y-m-d'));
             }
             return datatables()->of($schedule)
                         ->addColumn('action', function($data){
@@ -98,7 +98,7 @@ class ScheduleController extends Controller
         # Tampilin flash message
         flash('Selamat data telah berhasil ditambahkan')->success();
         
-        return redirect()->route('schedules.ubah');
+        return redirect()->route('schedules.index');
     }
 
     /**

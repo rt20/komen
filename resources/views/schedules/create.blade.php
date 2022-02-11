@@ -36,14 +36,14 @@
                         <div class="row">
 
                             <div class="col-sm-2">
-                                Tanggal Mulai*
+                                Tanggal Kegiatan*
                             </div>
                             <div class="col-sm-auto">
                                 <input id="date" type="date" name="date_start" class="form-control form-control-sm"
                                     value="{{old('date')}} " required>
                             </div>
                             <div class="col-sm-auto">
-                                Waktu Mulai*
+                                Waktu*
                             </div>
                             <div class="col-sm-auto">
                                 <input id="time" type="time" name="time_start" class="form-control form-control-sm"
@@ -52,96 +52,19 @@
                             WIB
                         </div>
                         <br>
-                        <!-- <div class="row">
-
-                            <div class="col-sm-2">
-                                Tanggal Selesai
-                            </div>
-                            <div class="col-sm-auto">
-                                <input id="date_end" type="date" name="date_end" class="form-control form-control-sm"
-                                    value="{{old('date_end')}} ">
-                            </div>
-                            <div class="col-sm-auto">
-                                Waktu Selesai
-                            </div>
-                            <div class="col-sm-auto">
-                                <input id="time_end" type="time" name="time_end" class="form-control form-control-sm"
-                                    value="{{old('time_end')}}">
-                            </div>
-                            WIB
-                        </div>
-
-                        <br> -->
+                       
 
 
                         <div class="row">
                             <div class="col-sm-2">
-                                Agenda*
+                                Kegiatan*
                             </div>
                             <div class="col-sm-5">
                                 <input id="agenda" type="text" name="agenda" placeholder="Nama Kegiatan/ Acara"
                                     class="form-control form-control-sm" value="{{old('agenda')}}">
                             </div>
                         </div>
-                        </br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Penyelenggara*
-                            </div>
-                            <div class="col-sm-5">
-                                <input id="organizer" type="text" name="organizer"
-                                    placeholder="Penyelenggara Kegiatan/ Acara" class="form-control form-control-sm"
-                                    value="{{old('organizer')}}">
-                            </div>
-                        </div>
-                        <br>
-
                       
-
-                        <div class="row">
-                            <div class="col-sm-2">
-                               Disposisi
-                            </div>
-                            <div class="col-sm-5">
-                                <input id="participant" type="text" name="participant"
-                                    placeholder="Disposisi" class="form-control form-control-sm"
-                                    value="{{old('participant')}}">
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-2"> Keterangan
-                            </div>
-                            <div class="col-sm-5">
-
-                                <input id="note" type="text" name="note" class="form-control form-control-sm"
-                                    placeholder="Keterangan" value="{{old('note')}}">
-                            </div>
-                        </div>
-                        <br>
-                        <!-- <div class="row">
-                            <div class="col-sm-2"> Lampiran
-                            </div>
-                            <div class="form-group col-sm-5 ">
-                                <input id="attachment" type="file" name="attachment" 
-                                    class="form-control form-control-sm" placeholder="Lampiran"
-                                    value="{{old('attachment')}}">
-                            </div>
-                        </div>
-                        <br> -->
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Tempat
-                            </div>
-                            <div class="col-sm-5">
-                                <input id="location" type="text" name="location" placeholder="Lokasi Kegiatan/ Acara"
-                                    class="form-control form-control-sm" value="{{old('location')}}">
-                                <input type="hidden" id="lat" name="lat" value="">
-                                <input type="hidden" id="lng" name="lng" value="">
-                                <br>
-                            </div>
-                        </div>
 
 
                         <div class="row">

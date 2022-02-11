@@ -181,10 +181,10 @@
                 lengthMenu: [ [ 10, 25, 50, 100, -1 ], [ '10', '25', '50', '100','Semua' ] ],
                 buttons: [
                     'pageLength',
-                    // { extend: 'csv', text: '<i class="fas fa-file-csv fa-1x"></i>'},
-                    // { extend: 'excel', text: '<i class="fas fa-file-excel" aria-hidden="true"></i>' },
+                    { extend: 'csv', text: '<i class="fas fa-file-csv fa-1x"></i>'},
+                    { extend: 'excel', text: '<i class="fas fa-file-excel" aria-hidden="true"></i>' },
                     { extend: 'pdf', text: '<i class="fas fa-file-pdf fa-1x" aria-hidden="true"></i>' },
-                    // { extend: 'print', text: '<i class="fas fa-print" aria-hidden="true"></i>' },
+                    { extend: 'print', text: '<i class="fas fa-print" aria-hidden="true"></i>' },
                 ],
             });
 
