@@ -117,24 +117,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.create') }}" class="nav-link">
-              <i class="nav-icon fas fa-plus-square"></i>
-              <p>
-                Tambah
-              </p>
-            </a>
-          </li>
-         
-          <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.ubah') }}" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Edit
-              </p>
-            </a>
-          </li>
-          
       </nav>
       <!-- /.sidebar-menu -->
     </div>

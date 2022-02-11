@@ -106,38 +106,39 @@
                         to_date: to_date
                     } //jangan lupa kirim parameter tanggal
                 },
-                columns: [{
-                        "data": "id",
-                        render: function (data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1;
-                        }
-                    },
-                    {
-                        data: 'date_start',
-                        name: 'date_start'
-                    },
+                columns: [
+                    // {
+                    //     "data": "id",
+                    //     render: function (data, type, row, meta) {
+                    //         return meta.row + meta.settings._iDisplayStart + 1;
+                    //     }
+                    // },
+                    // {
+                    //     data: 'date_start',
+                    //     name: 'date_start'
+                    // },
 
                     {
                         data: 'time_start',
                         name: 'time_start'
                     },
-                    {
-                        data: 'location',
-                        name: 'location'
-                    },
+                    // {
+                    //     data: 'location',
+                    //     name: 'location'
+                    // },
                     {
                         data: 'agenda',
                         name: 'agenda'
                     },
-                    {
-                        data: 'organizer',
-                        name: 'organizer'
-                    },
+                    // {
+                    //     data: 'organizer',
+                    //     name: 'organizer'
+                    // },
 
-                    {
-                        data: 'participant',
-                        name: 'participant'
-                    },
+                    // {
+                    //     data: 'participant',
+                    //     name: 'participant'
+                    // },
                     // {
                     //     data: 'attachment',
                     //     name: 'attachment',
@@ -153,10 +154,10 @@
                     //         // return '<a href="'+data+'" target="_blank">'+data+'</a>';
                     //     }
                     // },
-                    {
-                        data: 'note',
-                        name: 'note'
-                    },
+                    // {
+                    //     data: 'note',
+                    //     name: 'note'
+                    // },
 
                 ],
                 // columnDefs: [{

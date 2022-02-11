@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f4debdcbb1b72083a6ce3be05ea7af8ffb227653',
+        'reference' => 'b96de7453259be6089481d8294bbbdebe1d540c6',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -508,7 +508,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f4debdcbb1b72083a6ce3be05ea7af8ffb227653',
+            'reference' => 'b96de7453259be6089481d8294bbbdebe1d540c6',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1067,8 +1067,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1201,12 +1201,12 @@
             'dev_requirement' => true,
         ),
         'sebastian/global-state' => array(
-            'pretty_version' => '5.0.3',
-            'version' => '5.0.3.0',
+            'pretty_version' => '5.0.4',
+            'version' => '5.0.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sebastian/global-state',
             'aliases' => array(),
-            'reference' => '23bd5951f7ff26f12d4e3242864df3e08dec4e49',
+            'reference' => '19c519631c5a511b7ed0ad64a6713fdb3fd25fe4',
             'dev_requirement' => true,
         ),
         'sebastian/lines-of-code' => array(

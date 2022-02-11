@@ -48,15 +48,9 @@
                     <table id="schedule" class="table table-responsive table-striped table-bordered table-sm" style="width:100%">
                     <thead>
                         <tr>
-
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Jam</th>
-                            <th>Tempat</th>
-                            <th>Agenda</th>
-                            <th>Penyelenggara</th>
-                            <th>Disposisi</th>
-                            <th>Keterangan</th>
+                            <th>Waktu</th>
+                            <th>Kegiatan</th>
+                            
 
                         </tr>
                     </thead>
