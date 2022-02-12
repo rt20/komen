@@ -94,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('sakits.index') }}" class="nav-link">
+            <a href="{{ route('dinas.index') }}" class="nav-link">
               <i class="nav-icon fas fa-street-view"></i>
               <p>
                 Taruna Dinas
@@ -102,7 +102,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.create') }}" class="nav-link">
+            <a href="{{ route('pdlts.index') }}" class="nav-link">
               <i class="nav-icon fas fa-running"></i>
               <p>
                 Taruna PDLT
@@ -110,7 +110,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.create') }}" class="nav-link">
+            <a href="{{ route('puasas.index') }}" class="nav-link">
               <i class="nav-icon fas fa-ban"></i>
               <p>
                 Taruna Puasa

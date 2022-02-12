@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Tambah Taruna Sakit')
+@section('title','Edit Taruna PDLT')
 
 @section('content')
 
@@ -11,13 +11,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Taruna Sakit</h1>
+                    <h1>Edit Taruna PDLT</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('sakits.index') }}">Taruna Sakit</a></li>
-                        <li class="breadcrumb-item active">Tambah</li>
+                        <li class="breadcrumb-item"><a href="{{ route('pdlts.index') }}">Taruna PDLT</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
             </div>
@@ -47,41 +47,37 @@
                         </div>
                     </div>
                     @endif
-                    <form class="w-full" action="{{ route('sakits.store') }}" method="post"
+                    <form class="w-full" action="{{ route('pdlts.update', $pdlt->id) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
+                        {{ method_field("PATCH") }}
                         <div class="row">
                             <div class="col-sm-2">
                                 Nama Taruna*
                             </div>
-                            <div class="col-sm-5">
-                            <select name="user_id" class="form-control form-control-sm" required>
-                                <option value="">- Pilih Nama Taruna Sakit</option>
-                                @foreach($users as $user)
-                                <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : null }}>
-                                    {{ $user->name }} </option>
-                                @endforeach
-                            </select>
+                            <div class="col-sm-auto">
+
+                            <select name="user_id" 
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" required>
+                                <option value="">- Pilih Nama Taruna PDLT</option>
+                                    @foreach($user ?? '' as $user)
+                                    <option value="{{ $user->id }}" {{ $pdlt->user_id == $user->id ? 'selected' : null }}>
+                                        {{ $user->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
                             </div><br>
                         </div>
                         </br>
                         <div class="row">
                             <div class="col-sm-2">
-                                Status*
-                            </div>
-                            <div class="col-sm-5">
-                            <input type="text" name="status" class="form-control"
-                                style="width: 100%;" value="{{old('status')}} " required>
-                            </div><br>
-                        </div></br>
-                        <div class="row">
-                            <div class="col-sm-2">
                                 Keterangan
                             </div>
-                            <div class="col-sm-5">
-                            <input type="text" name="keterangan" class="form-control"
-                                style="width: 100%;" value="{{old('keterangan')}} " required>
-                            </div></br>
+                            <div class="col-sm-auto">
+                            <input type="date" name="keterangan" class="form-control" style="width: 100%;"
+                                value="{{ $pdlt->keterangan }}" required>
+                        </div>
                         </div>
                        
                         <div class="row">

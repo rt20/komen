@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Tambah Taruna Sakit')
+@section('title','Tambah Taruna Puasa')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Taruna Sakit</h1>
+                    <h1>Tambah Taruna Puasa</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('sakits.index') }}">Taruna Sakit</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('puasas.index') }}">Taruna Puasa</a></li>
                         <li class="breadcrumb-item active">Tambah</li>
                     </ol>
                 </div>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     @endif
-                    <form class="w-full" action="{{ route('sakits.store') }}" method="post"
+                    <form class="w-full" action="{{ route('puasas.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-sm-5">
                             <select name="user_id" class="form-control form-control-sm" required>
-                                <option value="">- Pilih Nama Taruna Sakit</option>
+                                <option value="">- Pilih Nama Taruna Puasa</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : null }}>
                                     {{ $user->name }} </option>
@@ -65,24 +65,6 @@
                             </div><br>
                         </div>
                         </br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Status*
-                            </div>
-                            <div class="col-sm-5">
-                            <input type="text" name="status" class="form-control"
-                                style="width: 100%;" value="{{old('status')}} " required>
-                            </div><br>
-                        </div></br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Keterangan
-                            </div>
-                            <div class="col-sm-5">
-                            <input type="text" name="keterangan" class="form-control"
-                                style="width: 100%;" value="{{old('keterangan')}} " required>
-                            </div></br>
-                        </div>
                        
                         <div class="row">
                             <div class="flex flex-wrap -mx-3 mb-6">

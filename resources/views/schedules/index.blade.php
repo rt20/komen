@@ -46,7 +46,7 @@
             </div>
 
             <div class="card-body " style="overflow-x:auto;">
-                <table id="schedule" class="table table-responsive table-striped table-bordered table-sm-auto"
+                <table id="schedule" class="table table-striped table-bordered table-sm-auto"
                     style="width:100%">
                     <thead>
                         <tr>

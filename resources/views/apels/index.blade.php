@@ -59,7 +59,7 @@
                   <tbody>
                     <tr>
                       <td>Skadron I</td>
-                      <td>219</td>
+                      <td>1</td>
                       <td>219</td>
                       <td>219</td>
                       <td>219</td>

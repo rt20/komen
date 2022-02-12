@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Booking Ruangan')
+@section('title','Edit Taruna Sakit')
 
 @section('content')
 
@@ -11,13 +11,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Booking Ruangan Daring/Luring</h1>
+                    <h1>Edit Taruna Sakit</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('books.index') }}">Booking Ruangan</a></li>
-                        <li class="breadcrumb-item active">Tambah</li>
+                        <li class="breadcrumb-item"><a href="{{ route('sakits.index') }}">Taruna Sakit</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
             </div>
@@ -26,6 +26,7 @@
 
     <!-- Main content -->
     <section class="content">
+    <div class="card">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
@@ -46,190 +47,48 @@
                         </div>
                     </div>
                     @endif
-                    <form class="w-full" action="{{ route('books.update',$item->id) }}" method="post"
+                    <form class="w-full" action="{{ route('sakits.update', $sakit->id) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        {{ method_field("PATCH") }}
                         <div class="row">
                             <div class="col-sm-2">
-                                Nama PIC*
+                                Nama Taruna*
                             </div>
-                            <div class="col-sm-9">
-                                <input value="{{ old('pic') ?? $item->pic }}" name="pic"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Nama Penanggung Jawab">
+                            <div class="col-sm-5">
+
+                            <select name="user_id" 
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" required>
+                                <option value="">- Pilih Nama Taruna</option>
+                                    @foreach($user ?? '' as $user)
+                                    <option value="{{ $user->id }}" {{ $sakit->user_id == $user->id ? 'selected' : null }}>
+                                        {{ $user->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
                             </div><br>
                         </div>
                         </br>
                         <div class="row">
                             <div class="col-sm-2">
-                                Nama Ruangan*
+                                Status*
                             </div>
-                            <div class="col-sm-10">
-                                <select name="room"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" style="width: 40%;" required>
-                                    <option value="">- Pilih Ruangan Daring/Luring</option>
-                                    <option value="Zoom Meeting 1 (ditwas.prrs)">Zoom Meeting 1 (ditwas.prrs)</option>
-                                    <option value="Zoom Meeting 2 (inspeksisedang.btp)">Zoom Meeting 2
-                                        (inspeksisedang.btp)</option>
-                                    <option value="Zoom Meeting 3 (peredaranpangan)">Zoom Meeting 3 (peredaranpangan)
-                                    </option>
-                                    <option value="Ruang Rapat Wasdar">Ruang Rapat Wasdar</option>
-                                </select>
-                            </div>
-                        </div><br>
-
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Agenda*
-                            </div>
-                            <div class="col-sm-9">
-                                <input value="{{ old('agenda') ?? $item->agenda }}" name="agenda"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Agenda">
+                            <div class="col-sm-5">
+                            <input type="text" name="status" class="form-control"
+                                style="width: 100%;" value="{{old('status')?? $sakit->status}} " required>
                             </div><br>
                         </div></br>
                         <div class="row">
                             <div class="col-sm-2">
-                                Peserta
+                                Keterangan
                             </div>
-                            <div class="col-sm-9">
-                                <input value="{{ old('participant') ?? $item->participant }}" name="participant"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Peserta">
+                            <div class="col-sm-5">
+                            <input type="text" name="keterangan" class="form-control"
+                                style="width: 100%;" value="{{old('keterangan')?? $sakit->keterangan}} " required>
                             </div></br>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Jumlah Peserta
-                            </div>
-                            <div class="col-sm-3">
-                                <input value="{{ old('quantity') ?? $item->quantity }}" name="quantity"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Jumlah Peserta">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Tanggal Mulai*
-                            </div>
-                            <div class="col-sm-3">
-                                <input type="date" name="mulai"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 100%;" value="{{old('mulai')}}">
-                            </div>
-                            <div class="col-sm-1">
-
-                            </div>
-                            <div class="col-sm-2">
-                                Waktu Mulai*
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="hours_start"
-                                    class="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 40%;" required>
-                                    <?php foreach(range(1,23) as $i):?>
-                                    <?php if($i<=9):?>
-                                    <option value="<?='0'.$i?>"><?='0'.$i?></option>
-                                    <?php else:?>
-                                    <option value="<?=$i?>"><?=$i?></option>
-                                    <?php endif;?>
-                                    <?php endforeach;?>
-                                </select>
-
-                                <select name="minutes_start"
-                                    class="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 40%;">
-                                    <?php foreach(range(0,59) as $i):?>
-                                    <?php if($i<=9):?>
-                                    <option value="<?='0'.$i?>"><?='0'.$i?></option>
-                                    <?php else:?>
-                                    <option value="<?=$i?>"><?=$i?></option>
-                                    <?php endif;?>
-                                    <?php endforeach;?>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                     
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Tanggal Selesai*
-                            </div>
-                            <div class="col-sm-3">
-                                <input type="date" name="selesai" 
-                                    class="form control appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 100%;" value="{{old('selesai')}}" placeholder="Waktu selesai kegiatan" required> 
-                            </div>
-                            <div class="col-sm-1">
-
-                            </div>
-                            <div class="col-sm-2">
-                                Waktu Selesai*
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="hours_end"
-                                    class="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 40%;" required>
-                                    <?php foreach(range(1,23) as $i):?>
-                                    <?php if($i<=9):?>
-                                    <option value="<?='0'.$i?>"><?='0'.$i?></option>
-                                    <?php else:?>
-                                    <option value="<?=$i?>"><?=$i?></option>
-                                    <?php endif;?>
-                                    <?php endforeach;?>
-                                </select>
-
-                                <select name="minutes_end"
-                                    class="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    style="width: 40%;">
-                                    <?php foreach(range(0,59) as $i):?>
-                                    <?php if($i<=9):?>
-                                    <option value="<?='0'.$i?>"><?='0'.$i?></option>
-                                    <?php else:?>
-                                    <option value="<?=$i?>"><?=$i?></option>
-                                    <?php endif;?>
-                                    <?php endforeach;?>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Meeting ID
-                            </div>
-                            <div class="col-sm-3">
-                                <input value="{{ old('meetingid') }}" name="meetingid"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Meeting ID">
-                            </div>
-                            <div class="col-sm-1">
-
-                            </div>
-                            <div class="col-sm-2">
-                                Passcode
-                            </div>
-                            <div class="col-sm-3">
-                                <input value="{{ old('password') }}" name="password"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Passcode">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                Link Zoom
-                            </div>
-                            <div class="col-sm-9">
-                                <input value="{{ old('link') }}" name="link"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Link Zoom">
-                            </div></br>
-                        </div>
-                        <br>
+                       
                         <div class="row">
                             <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full px-3 text-right">
@@ -242,6 +101,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
         <!--/. container-fluid -->
     </section>

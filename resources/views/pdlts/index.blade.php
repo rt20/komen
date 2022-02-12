@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Taruna Sakit')
+@section('title','Taruna PDLT')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Taruna Sakit</h1>
+                    <h1>Taruna PDLT</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Taruna Sakit</li>
+                        <li class="breadcrumb-item active">Taruna PDLT</li>
                     </ol>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('sakits.create') }}" class="btn btn-primary" title="Tambah Taruna Sakit"><i
+                        <a href="{{ route('pdlts.create') }}" class="btn btn-primary" title="Tambah Taruna PDLT "><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
                     <!-- /.card-header -->
@@ -40,7 +40,6 @@
                                     <th>Nama</th>
                                     <th>Pangkat</th>
                                     <th>No AK</th>
-                                    <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -51,12 +50,11 @@
                                     <td>{{ $row->name }}</td>
                                     <td>{{ $row->pangkat }}</td>
                                     <td>{{ $row->no_ak }}</td>
-                                    <td>{{ $row->status }}</td>
-                                    <td>{{ $row->keterangan }}</td>
+                                    <td>{{ date('d-M-y', strtotime($row->keterangan)) }}</td>
                                     <td>
-                                        <a href="{{ route('sakits.edit', $row->id) }}" class="btn btn-success btn-sm" title="Ubah">
+                                        <a href="{{ route('pdlts.edit', $row->id) }}" class="btn btn-success btn-sm" title="Ubah">
                                             <i class="fa fa-edit"></i></a>
-                                        <form action="{{ route('sakits.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                        <form action="{{ route('pdlts.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm "

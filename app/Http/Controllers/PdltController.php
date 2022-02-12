@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sakit;
+use App\Models\Pdlt;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 
 use DB;
 
-class SakitController extends Controller
+class PdltController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,10 @@ class SakitController extends Controller
      */
     public function index()
     {
-
         $data = DB::table('users')
-                ->join('sakits','users.id','=','sakits.user_id')->paginate(10);
+                ->join('pdlts','users.id','=','pdlts.user_id')->paginate(10);
 
-        return view('sakits.index', compact('data'));
+        return view('pdlts.index', compact('data'));
     }
 
     /**
@@ -32,7 +32,7 @@ class SakitController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('sakits.create', compact('users'));
+        return view('pdlts.create', compact('users'));
     }
 
     /**
@@ -45,13 +45,13 @@ class SakitController extends Controller
     {
         $data = $request->all();
         
-            Sakit::create($data);
+            Pdlt::create($data);
         
      
         # Tampilin flash message
         flash('Selamat data telah berhasil ditambahkan')->success();
         
-        return redirect()->route('sakits.index');
+        return redirect()->route('pdlts.index');
     }
 
     /**
@@ -71,15 +71,14 @@ class SakitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sakit $sakit)
+    public function edit(Pdlt $pdlt)
     {
         $users = User::all();
 
-        return view('sakits.edit',[
-            'sakit' => $sakit,
+        return view('pdlts.edit',[
+            'pdlt' => $pdlt,
             'user' => $users
         ]);
-        
     }
 
     /**
@@ -89,13 +88,13 @@ class SakitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sakit $sakit)
+    public function update(Request $request, Pdlt $pdlt)
     {
         $row = $request->all();
 
-        $sakit->update($row);
+        $pdlt->update($row);
 
-        return redirect()->route('sakits.index');
+        return redirect()->route('pdlts.index');
     }
 
     /**
@@ -104,10 +103,10 @@ class SakitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sakit $sakit)
-    { 
-      $sakit->delete();
+    public function destroy(Pdlt $pdlt)
+    {
+        $pdlt->delete();
         flash('Data berhasil dihapus')->error();
-        return redirect()->route('sakits.index');
+        return redirect()->route('pdlts.index');
     }
 }

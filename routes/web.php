@@ -9,6 +9,9 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\ApelController;
 use App\Http\Controllers\SakitController;
+use App\Http\Controllers\PdltController;
+use App\Http\Controllers\PuasaController;
+use App\Http\Controllers\DinasController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,8 +34,12 @@ Route::prefix('/')
         Route::resource('books', BookController::class);
         Route::resource('borrows', BorrowController::class);
         Route::resource('items', ItemController::class);
+
         Route::resource('apels', ApelController::class);
         Route::resource('sakits', SakitController::class);
+        Route::resource('pdlts', PdltController::class);
+        Route::resource('puasas', PuasaController::class);
+        Route::resource('dinas', DinasController::class);
 
         Route::get('schedules/ubah', 'App\Http\Controllers\ScheduleController@ubah')->name('schedules.ubah');
         Route::resource('schedules', ScheduleController::class);

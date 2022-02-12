@@ -7,11 +7,14 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-           
+            <li class="nav-item d-none d-sm-inline-block">
+            <img src="{{ asset('img/logo_aau.png') }}" width='50' height='75'>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block nav-link">
+      <h5><b>Sistem Informasi Dinas Jaga Taruna</b></h5>
+      </li>
         </ul>
-        <div class="col-sm-6">
-                    <h5>Sistem Informasi Dinas Jaga Taruna</h5>
-                </div>
+       
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
