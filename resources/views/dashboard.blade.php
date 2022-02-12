@@ -15,7 +15,6 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -30,9 +29,15 @@
             <div class="row">
                 
                 <!-- /.col -->
-                <div class="col-lg-3 col-6">
+                <div class="col-12">
             <!-- small box -->
-           
+            <div class="callout callout-info">
+            <div class="row">
+            <img src="{{ asset('img/logo_aau.png') }}" width='150' height='200'>
+              <h1>Dinas Jaga Taruna<br>
+              Akademi Angkatan Udara</h1>
+            </div>
+            </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->
