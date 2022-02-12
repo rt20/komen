@@ -12,6 +12,9 @@ use App\Http\Controllers\SakitController;
 use App\Http\Controllers\PdltController;
 use App\Http\Controllers\PuasaController;
 use App\Http\Controllers\DinasController;
+use App\Http\Controllers\InventarisController;
+use App\Http\Controllers\MakananController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,6 +43,8 @@ Route::prefix('/')
         Route::resource('pdlts', PdltController::class);
         Route::resource('puasas', PuasaController::class);
         Route::resource('dinas', DinasController::class);
+        Route::resource('inventaris', InventarisController::class);
+        Route::resource('makanans', MakananController::class);
 
         Route::get('schedules/ubah', 'App\Http\Controllers\ScheduleController@ubah')->name('schedules.ubah');
         Route::resource('schedules', ScheduleController::class);

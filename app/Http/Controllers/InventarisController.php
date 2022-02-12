@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Puasa;
-use App\Models\User;
+use App\Models\Inventaris;
+use DB;
 
 use Illuminate\Http\Request;
 
-use DB;
-
-class PuasaController extends Controller
+class InventarisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +16,9 @@ class PuasaController extends Controller
      */
     public function index()
     {
-        $data = DB::table('users')
-                ->join('puasas','users.id','=','puasas.user_id')->paginate(10);
-
-        return view('puasas.index', compact('data'));
+        $data = DB::table('inventaris')->paginate(10);
+        
+        return view('inventaris.index', compact('data'));
     }
 
     /**
@@ -31,8 +28,7 @@ class PuasaController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('puasas.create', compact('users'));
+        return view('inventaris.create');
     }
 
     /**
@@ -44,14 +40,14 @@ class PuasaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
-            Puasa::create($data);
+        #dd($data);
+            Inventaris::create($data);
         
      
         # Tampilin flash message
         flash('Selamat data telah berhasil ditambahkan')->success();
         
-        return redirect()->route('puasas.index');
+        return redirect()->route('inventaris.index');
     }
 
     /**
@@ -94,10 +90,18 @@ class PuasaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Puasa $puasa)
+    public function destroy($id)
     {
-        $puasa->delete();
+       
+        // $inventaris->delete();
+
+        // flash('Data berhasil dihapus')->error();
+        // return redirect()->route('inventaris.index');
+
+        $inventaris = Inventaris::find($id);
+       
+        $inventaris->delete();
         flash('Data berhasil dihapus')->error();
-        return redirect()->route('puasas.index');
+        return redirect()->route('inventaris.index');
     }
 }

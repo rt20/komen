@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Taruna Puasa')
+@section('title','Daftar Kerusakan Inventaris')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Taruna Puasa</h1>
+                    <h1>Daftar Kerusakan Inventaris</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Taruna Puasa</li>
+                        <li class="breadcrumb-item active">Daftar Kerusakan Inventaris</li>
                     </ol>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('puasas.create') }}" class="btn btn-primary" title="Tambah Taruna Puasa "><i
+                        <a href="{{ route('inventaris.create') }}" class="btn btn-primary" title="Tambah Kerusakan Inventaris "><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
                     <!-- /.card-header -->
@@ -38,22 +38,20 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Pangkat</th>
-                                    <th>No AK</th>
-                                    <th>Kelas</th>
+                                    <th>Lokasi</th>
+                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($data as $row)
                                 <tr>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->pangkat }}</td>
-                                    <td>{{ $row->no_ak }}</td>
-                                    <td>{{ $row->kelas }}</td>
+                                    <td>{{ $row->nama }}</td>
+                                    <td>{{ $row->lokasi }}</td>
+                                    <td>{{ $row->keterangan }}</td>
                                     <td>
-                                
-                                        <form action="{{ route('puasas.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                       
+                                        <form action="{{ route('inventaris.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm "

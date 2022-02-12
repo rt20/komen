@@ -43,14 +43,6 @@
                 </a>
               </li>
             </ul>
-            <!-- <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('items.index') }}" class="nav-link">
-                  <i class="fa fa-archive nav-icon"></i>
-                  <p>BMN</p>
-                </a>
-              </li>
-            </ul> -->
           </li>
           @endif
           <li class="nav-item has-treeview">
@@ -70,7 +62,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.create') }}" class="nav-link">
+            <a href="{{ route('makanans.index') }}" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Menu Makanan
@@ -78,7 +70,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.create') }}" class="nav-link">
+            <a href="{{ route('inventaris.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
                 Daftar Kerusakan Inventaris

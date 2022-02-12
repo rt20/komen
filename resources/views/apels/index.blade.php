@@ -33,6 +33,10 @@
                   <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Apel Pagi</a>
                   <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Apel Siang</a>
                   <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Apel Malam</a>
+                  <div class="card-header">
+                        <a href="{{ route('apels.create') }}" class="btn btn-primary" title="Tambah Laporan Kekuatan Apel"><i
+                                class="nav-icon fas fa-plus-circle"></i> </a>
+                    </div>
                 </div>
               </div>
               <div class="col-7 col-sm-9">
@@ -54,69 +58,150 @@
                       <th>RSPAU</th>
                       <th>DLL</th>
                       <th>Keterangan</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($pagi1 as $row)
                     <tr>
-                      <td>Skadron I</td>
-                      <td>1</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                    <td>Skadron I</td>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron I</td>
+                        </tr>
+                        @endforelse
+                        @forelse($pagi2 as $row)
                     <tr>
                     <td>Skadron II</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron II</td>
+                        </tr>
+                        @endforelse
+                        @forelse($pagi3 as $row)
                     <tr>
                     <td>Skadron III</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron III</td>
+                        </tr>
+                        @endforelse
+                        @forelse($pagi4 as $row)
                     <tr>
                     <td>Skadron IV</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron IV</td>
+                        </tr>
+                        @endforelse
+                        @forelse($pagi5 as $row)
                     <tr>
                     <td>Wingkorps Taruna</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Wingkorps Taruna</td>
+                        </tr>
+                        @endforelse
                    
                   </tbody>
                 </table>
@@ -144,66 +229,146 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($siang1 as $row)
                     <tr>
-                      <td>Skadron I</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                    <td>Skadron I</td>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron I</td>
+                        </tr>
+                        @endforelse
+                        @forelse($siang2 as $row)
                     <tr>
                     <td>Skadron II</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron II</td>
+                        </tr>
+                        @endforelse
+                        @forelse($siang3 as $row)
                     <tr>
                     <td>Skadron III</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron III</td>
+                        </tr>
+                        @endforelse
+                        @forelse($siang4 as $row)
                     <tr>
                     <td>Skadron IV</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron IV</td>
+                        </tr>
+                        @endforelse
+                        @forelse($siang5 as $row)
                     <tr>
                     <td>Wingkorps Taruna</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Wingkorps Taruna</td>
+                        </tr>
+                        @endforelse
                    
                   </tbody>
                 </table>
@@ -234,66 +399,146 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($malam1 as $row)
                     <tr>
-                      <td>Skadron I</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                    <td>Skadron I</td>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron I</td>
+                        </tr>
+                        @endforelse
+                        @forelse($malam2 as $row)
                     <tr>
                     <td>Skadron II</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron II</td>
+                        </tr>
+                        @endforelse
+                        @forelse($malam3 as $row)
                     <tr>
                     <td>Skadron III</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron III</td>
+                        </tr>
+                        @endforelse
+                        @forelse($malam4 as $row)
                     <tr>
                     <td>Skadron IV</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Skadron IV</td>
+                        </tr>
+                        @endforelse
+                        @forelse($malam5 as $row)
                     <tr>
                     <td>Wingkorps Taruna</td>
-                    <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>Lengkap</td>
-                    </tr>
+                      <td>{{ $row->jumlah }}</td>
+                      <td>{{ $row->kurang }}</td>
+                      <td>{{ $row->hadir }}</td>
+                      <td>{{ $row->dd }}</td>
+                      <td>{{ $row->dl }}</td>
+                      <td>{{ $row->rsau }}</td>
+                      <td>{{ $row->rspau }}</td>
+                      <td>{{ $row->dll }}</td>
+                      <td>{{ $row->keterangan }}</td>                    
+                        <td>                               
+                                <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Wingkorps Taruna</td>
+                        </tr>
+                        @endforelse
                    
                   </tbody>
                 </table>

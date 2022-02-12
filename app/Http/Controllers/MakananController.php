@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Puasa;
-use App\Models\User;
+use App\Models\Makanan;
+use DB;
 
 use Illuminate\Http\Request;
 
-use DB;
-
-class PuasaController extends Controller
+class MakananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +16,16 @@ class PuasaController extends Controller
      */
     public function index()
     {
-        $data = DB::table('users')
-                ->join('puasas','users.id','=','puasas.user_id')->paginate(10);
-
-        return view('puasas.index', compact('data'));
+        $data = DB::table('makanans')
+                ->where('makanans.waktu', 'pagi')
+                ->paginate(10);
+        $siang = DB::table('makanans')
+                ->where('makanans.waktu', 'siang')
+                ->paginate(10);
+        $malam = DB::table('makanans')
+                ->where('makanans.waktu', 'malam')
+                ->paginate(10);
+        return view('makanans.index', compact('data','siang','malam'));
     }
 
     /**
@@ -31,8 +35,7 @@ class PuasaController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('puasas.create', compact('users'));
+        return view('makanans.create');
     }
 
     /**
@@ -44,14 +47,14 @@ class PuasaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
-            Puasa::create($data);
+        #dd($data);
+            Makanan::create($data);
         
      
         # Tampilin flash message
         flash('Selamat data telah berhasil ditambahkan')->success();
         
-        return redirect()->route('puasas.index');
+        return redirect()->route('makanans.index');
     }
 
     /**
@@ -94,10 +97,10 @@ class PuasaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Puasa $puasa)
+    public function destroy(Makanan $makanan)
     {
-        $puasa->delete();
+        $makanan->delete();
         flash('Data berhasil dihapus')->error();
-        return redirect()->route('puasas.index');
+        return redirect()->route('makanans.index');
     }
 }
