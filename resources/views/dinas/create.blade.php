@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Tambah Taruna Puasa')
+@section('title','Tambah Taruna Dinas')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Taruna Puasa</h1>
+                    <h1>Tambah Taruna Dinas</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('puasas.index') }}">Taruna Puasa</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dinas.index') }}">Taruna Dinas</a></li>
                         <li class="breadcrumb-item active">Tambah</li>
                     </ol>
                 </div>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     @endif
-                    <form class="w-full" action="{{ route('puasas.store') }}" method="post"
+                    <form class="w-full" action="{{ route('dinas.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-sm-5">
                             <select name="user_id" class="form-control form-control-sm" required>
-                                <option value="">- Pilih Nama Taruna Puasa</option>
+                                <option value="">- Pilih Nama Taruna Dinas</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : null }}>
                                     {{ $user->name }} </option>
@@ -65,7 +65,30 @@
                             </div><br>
                         </div>
                         </br>
-                       
+                        <div class="row">
+                                <div class="col-sm-2">
+                                    Jenis Dinas
+                                </div>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="dinas" class="form-control" style="width: 100%;"
+                                        value="{{old('dinas')}} ">
+                                </div></br>
+                            </div> <br>
+                        <div class="row">
+                                <div class="col-sm-2">
+                                    Skadron*
+                                </div>
+                                <div class="col-sm-auto">
+                                    <select name="skadron" class="form-control form-control-sm" required>
+                                        <option value="">- Pilih Skadron</option>
+                                        <option value="skadroni">Skadron I</option>
+                                        <option value="skadronii">Skadron II</option>
+                                        <option value="skadroniii">Skadron III</option>
+                                        <option value="skadroniv">Skadron IV</option>
+                                    </select>
+                                </div></br>
+                            </div>
+                            <br>
                         <div class="row">
                             <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full px-3 text-right">

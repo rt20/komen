@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dinas;
+use App\Models\User;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +17,27 @@ class DinasController extends Controller
      */
     public function index()
     {
-        return view ('dinas.index');
+        $skadron1 = DB::table('users')
+                ->join('dinas','users.id','=','dinas.user_id')
+                ->where('dinas.skadron', 'skadroni')
+                ->paginate(10);
+        $skadron2 = DB::table('users')
+                ->join('dinas','users.id','=','dinas.user_id')
+                ->where('dinas.skadron', 'skadronii')
+                ->paginate(10);
+        $skadron3 = DB::table('users')
+                ->join('dinas','users.id','=','dinas.user_id')
+                ->where('dinas.skadron', 'skadroniii')
+                ->paginate(10);
+        $skadron4 = DB::table('users')
+                ->join('dinas','users.id','=','dinas.user_id')
+                ->where('dinas.skadron', 'skadroniv')
+                ->paginate(10);
+
+            return view ('dinas.index', compact('skadron1','skadron2','skadron3','skadron4'
+        ));
+
+       
     }
 
     /**
@@ -25,7 +47,8 @@ class DinasController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('dinas.create', compact('users'));
     }
 
     /**
@@ -36,7 +59,15 @@ class DinasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+            Dinas::create($data);
+        
+     
+        # Tampilin flash message
+        flash('Selamat data telah berhasil ditambahkan')->success();
+        
+        return redirect()->route('dinas.index');
     }
 
     /**
@@ -81,6 +112,10 @@ class DinasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dinas = Dinas::find($id);
+       
+        $dinas->delete();
+        flash('Data berhasil dihapus')->error();
+        return redirect()->route('dinas.index');
     }
 }

@@ -80,4 +80,8 @@ class User extends Authenticatable
 	{
 		return $this->hasMany('App\Puasas');
     }
+    public function dinas()
+	{
+		return $this->hasMany('App\Dinas');
+    }
 }

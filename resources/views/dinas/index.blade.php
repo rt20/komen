@@ -34,6 +34,10 @@
                   <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Skadron II</a>
                   <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Skadron III</a>
                   <a class="nav-link" id="vert-tabs-skadroniv-tab" data-toggle="pill" href="#vert-tabs-skadroniv" role="tab" aria-controls="vert-tabs-skadroniv" aria-selected="false">Skadron IV</a>
+                  <div class="card-header">
+                        <a href="{{ route('dinas.create') }}" class="btn btn-primary" title="Tambah Taruna Dinas"><i
+                                class="nav-icon fas fa-plus-circle"></i> </a>
+                    </div>
                 </div>
               </div>
               <div class="col-7 col-sm-9">
@@ -54,14 +58,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($skadron1 as $row)
                     <tr>
-                      <td>Skadron I</td>
-                      <td>1</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      
-                    </tr>
+                      <td>{{ $row->name }}</td>
+                      <td>{{ $row->pangkat }}</td>
+                      <td>{{ $row->no_ak }}</td>
+                      <td>{{ $row->dinas }}</td>
+                      <td>{{ $row->kelas }}</td>           
+                        <td>                               
+                                <form action="{{ route('dinas.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Data tidak ditemukan</td>
+                        </tr>
+                        @endforelse
+                    <tr>
                    
                    
                   </tbody>
@@ -85,14 +105,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($skadron2 as $row)
                     <tr>
-                      <td>Skadron II</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                     
-                    </tr>
+                      <td>{{ $row->name }}</td>
+                      <td>{{ $row->pangkat }}</td>
+                      <td>{{ $row->no_ak }}</td>
+                      <td>{{ $row->dinas }}</td>
+                      <td>{{ $row->kelas }}</td>           
+                        <td>                               
+                                <form action="{{ route('dinas.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Data tidak ditemukan</td>
+                        </tr>
+                        @endforelse
+                    <tr>
                   
                    
                   </tbody>
@@ -119,14 +155,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($skadron3 as $row)
                     <tr>
-                      <td>Skadron III</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                     
-                    </tr>
+                      <td>{{ $row->name }}</td>
+                      <td>{{ $row->pangkat }}</td>
+                      <td>{{ $row->no_ak }}</td>
+                      <td>{{ $row->dinas }}</td>
+                      <td>{{ $row->kelas }}</td>           
+                        <td>                               
+                                <form action="{{ route('dinas.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Data tidak ditemukan</td>
+                        </tr>
+                        @endforelse
+                    <tr>
                    
                    
                   </tbody>
@@ -154,14 +206,29 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @forelse($skadron4 as $row)
                     <tr>
-                      <td>Skadron IV</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                      <td>219</td>
-                   
-                    </tr>
+                      <td>{{ $row->name }}</td>
+                      <td>{{ $row->pangkat }}</td>
+                      <td>{{ $row->no_ak }}</td>
+                      <td>{{ $row->dinas }}</td>
+                      <td>{{ $row->kelas }}</td>           
+                        <td>                               
+                                <form action="{{ route('dinas.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm "
+                                        onclick="return confirm('Apakah anda yakin ?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Data tidak ditemukan</td>
+                        </tr>
+                        @endforelse
                     <tr>
                  
                    
@@ -183,5 +250,4 @@
   </div>
   <!-- /.content-wrapper -->
  <!-- push external js -->
-
 @endsection

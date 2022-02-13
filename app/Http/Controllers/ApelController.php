@@ -156,6 +156,7 @@ class ApelController extends Controller
      */
     public function destroy(Apel $apel)
     {
+       
         $apel->delete();
         flash('Data berhasil dihapus')->error();
         return redirect()->route('apels.index');
