@@ -28,10 +28,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                @if(Auth::user()->roles == 'ADMIN')
                     <div class="card-header">
                         <a href="{{ route('inventaris.create') }}" class="btn btn-primary" title="Tambah Kerusakan Inventaris "><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
+                    @endif
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
@@ -40,7 +42,6 @@
                                     <th>Nama</th>
                                     <th>Lokasi</th>
                                     <th>Keterangan</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,8 +50,8 @@
                                     <td>{{ $row->nama }}</td>
                                     <td>{{ $row->lokasi }}</td>
                                     <td>{{ $row->keterangan }}</td>
-                                    <td>
-                                       
+                                    @if(Auth::user()->roles == 'ADMIN')
+                                    <td>     
                                         <form action="{{ route('inventaris.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                             @csrf
                                             @method('delete')
@@ -60,6 +61,7 @@
                                             </button>
                                         </form>
                                     </td>
+                                    @endif
                                 </tr>
                                 @empty
                                 <tr>

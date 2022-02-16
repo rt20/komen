@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\InventarisController' => $baseDir . '/app/Http/Controllers/InventarisController.php',
     'App\\Http\\Controllers\\ItemController' => $baseDir . '/app/Http/Controllers/ItemController.php',
+    'App\\Http\\Controllers\\MakananController' => $baseDir . '/app/Http/Controllers/MakananController.php',
     'App\\Http\\Controllers\\PdltController' => $baseDir . '/app/Http/Controllers/PdltController.php',
     'App\\Http\\Controllers\\PuasaController' => $baseDir . '/app/Http/Controllers/PuasaController.php',
     'App\\Http\\Controllers\\SakitController' => $baseDir . '/app/Http/Controllers/SakitController.php',

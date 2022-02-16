@@ -39,8 +39,10 @@
                     <div class="col-sm-4">
                         <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button>
                         <button type="button" name="refresh" id="refresh" class="btn btn-info">Refresh</button>
+                        @if(Auth::user()->roles == 'ADMIN')
                         <a href="{{ route('schedules.create') }}" class="btn btn-success"
                             title="Tambah Jadwal Kegiatan"><i class="nav-icon fas fa-plus-circle"></i> </a>
+                            @endif
                     </div>
                 </div>
             </div>

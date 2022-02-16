@@ -17,20 +17,19 @@ class DinasController extends Controller
      */
     public function index()
     {
-        $skadron1 = DB::table('users')
-                ->join('dinas','users.id','=','dinas.user_id')
+        $skadron1 = DB::table('dinas')
+
                 ->where('dinas.skadron', 'skadroni')
                 ->paginate(10);
-        $skadron2 = DB::table('users')
-                ->join('dinas','users.id','=','dinas.user_id')
+        $skadron2 = DB::table('dinas')
+
                 ->where('dinas.skadron', 'skadronii')
                 ->paginate(10);
-        $skadron3 = DB::table('users')
-                ->join('dinas','users.id','=','dinas.user_id')
+        $skadron3 = DB::table('dinas')
                 ->where('dinas.skadron', 'skadroniii')
                 ->paginate(10);
-        $skadron4 = DB::table('users')
-                ->join('dinas','users.id','=','dinas.user_id')
+        $skadron4 = DB::table('dinas')
+
                 ->where('dinas.skadron', 'skadroniv')
                 ->paginate(10);
 

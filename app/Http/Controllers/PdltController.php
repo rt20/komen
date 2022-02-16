@@ -18,8 +18,8 @@ class PdltController extends Controller
      */
     public function index()
     {
-        $data = DB::table('users')
-                ->join('pdlts','users.id','=','pdlts.user_id')->paginate(10);
+        $data = DB::table('pdlts')
+                ->paginate(10);
 
         return view('pdlts.index', compact('data'));
     }

@@ -18,8 +18,8 @@ class SakitController extends Controller
     public function index()
     {
 
-        $data = DB::table('users')
-                ->join('sakits','users.id','=','sakits.user_id')->paginate(10);
+        $data = DB::table('sakits')
+                ->paginate(10);
 
         return view('sakits.index', compact('data'));
     }

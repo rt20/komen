@@ -55,16 +55,28 @@
                                 Nama Taruna*
                             </div>
                             <div class="col-sm-5">
-                            <select name="user_id" class="form-control form-control-sm" required>
-                                <option value="">- Pilih Nama Taruna Sakit</option>
-                                @foreach($users as $user)
-                                <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : null }}>
-                                    {{ $user->name }} </option>
-                                @endforeach
-                            </select>
-                            </div><br>
-                        </div>
-                        </br>
+                            <input type="text" name="nama" class="form-control"
+                                style="width: 100%;" value="{{old('nama')}} " required>
+                            </div></br>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                Pangkat
+                            </div>
+                            <div class="col-sm-5">
+                            <input type="text" name="pangkat" class="form-control" placeholder="Pangkat"
+                                style="width: 100%;" value="{{old('pangkat')}} ">
+                            </div></br>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                No AK
+                            </div>
+                            <div class="col-sm-5">
+                            <input type="text" name="no_ak" class="form-control" placeholder="No AK"
+                                style="width: 100%;" value="{{old('no_ak')}} ">
+                            </div></br>
+                        </div><br>
                         <div class="row">
                             <div class="col-sm-2">
                                 Status*
@@ -80,7 +92,7 @@
                             </div>
                             <div class="col-sm-5">
                             <input type="text" name="keterangan" class="form-control"
-                                style="width: 100%;" value="{{old('keterangan')}} " required>
+                                style="width: 100%;" value="{{old('keterangan')}} ">
                             </div></br>
                         </div>
                        

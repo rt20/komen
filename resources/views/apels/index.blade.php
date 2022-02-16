@@ -33,10 +33,12 @@
                   <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Apel Pagi</a>
                   <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Apel Siang</a>
                   <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Apel Malam</a>
+                  @if(Auth::user()->roles == 'ADMIN')
                   <div class="card-header">
                         <a href="{{ route('apels.create') }}" class="btn btn-primary" title="Tambah Laporan Kekuatan Apel"><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
+                    @endif
                 </div>
               </div>
               <div class="col-7 col-sm-9">
@@ -58,7 +60,6 @@
                       <th>RSPAU</th>
                       <th>DLL</th>
                       <th>Keterangan</th>
-                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,7 +74,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -84,6 +86,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -101,7 +104,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>    
+                      @if(Auth::user()->roles == 'ADMIN')                
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -112,6 +116,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -129,7 +134,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -140,6 +146,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -157,7 +164,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -168,6 +176,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -185,7 +194,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -196,6 +206,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -240,7 +251,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -251,6 +263,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -268,7 +281,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -279,6 +293,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -296,7 +311,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -307,6 +323,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -324,7 +341,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -335,6 +353,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -352,7 +371,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -363,6 +383,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -410,7 +431,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -421,6 +443,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -438,7 +461,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -449,6 +473,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -466,7 +491,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -477,6 +503,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -494,7 +521,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>  
+                      @if(Auth::user()->roles == 'ADMIN')                  
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -505,6 +533,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -522,7 +551,8 @@
                       <td>{{ $row->rsau }}</td>
                       <td>{{ $row->rspau }}</td>
                       <td>{{ $row->dll }}</td>
-                      <td>{{ $row->keterangan }}</td>                    
+                      <td>{{ $row->keterangan }}</td>   
+                      @if(Auth::user()->roles == 'ADMIN')                 
                         <td>                               
                                 <form action="{{ route('apels.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
@@ -533,6 +563,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>

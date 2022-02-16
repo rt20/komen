@@ -18,8 +18,8 @@ class PuasaController extends Controller
      */
     public function index()
     {
-        $data = DB::table('users')
-                ->join('puasas','users.id','=','puasas.user_id')->paginate(10);
+        $data = DB::table('puasas')
+                ->paginate(10);
 
         return view('puasas.index', compact('data'));
     }

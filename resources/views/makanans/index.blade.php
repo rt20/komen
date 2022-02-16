@@ -33,10 +33,12 @@
                   <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Makan Pagi</a>
                   <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Makan Siang</a>
                   <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Makan Malam</a>
+                  @if(Auth::user()->roles == 'ADMIN')
                   <div class="card-header">
                         <a href="{{ route('makanans.create') }}" class="btn btn-primary" title="Daftar Menu Makanan"><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
+                    @endif
                 </div>
               </div>
               <div class="col-7 col-sm-9">
@@ -50,8 +52,6 @@
                     <tr>
                       <th>Nama</th>
                       <th>Keterangan</th>
-                      <th>Aksi</th>
-                     
                     </tr>
                   </thead>
                   <tbody>
@@ -59,8 +59,8 @@
                     <tr>
                       <td>{{ $row->nama }}</td>
                         <td>{{ $row->keterangan }}</td>
-                        <td>
-                                
+                        @if(Auth::user()->roles == 'ADMIN')
+                        <td>       
                                 <form action="{{ route('makanans.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                     @csrf
                                     @method('delete')
@@ -70,6 +70,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -93,7 +94,6 @@
                     <tr>
                     <th>Nama</th>
                       <th>Keterangan</th>
-                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -101,6 +101,7 @@
                     <tr>
                       <td>{{ $row->nama }}</td>
                         <td>{{ $row->keterangan }}</td>
+                        @if(Auth::user()->roles == 'ADMIN')
                         <td>
                                 
                                 <form action="{{ route('makanans.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
@@ -112,6 +113,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>
@@ -138,7 +140,6 @@
                     <tr>
                     <th>Nama</th>
                       <th>Keterangan</th>
-                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -146,6 +147,7 @@
                     <tr>
                       <td>{{ $row->nama }}</td>
                         <td>{{ $row->keterangan }}</td>
+                        @if(Auth::user()->roles == 'ADMIN')
                         <td>
                                 
                                 <form action="{{ route('makanans.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
@@ -157,6 +159,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <tr>

@@ -28,10 +28,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                @if(Auth::user()->roles == 'ADMIN')
                     <div class="card-header">
                         <a href="{{ route('pdlts.create') }}" class="btn btn-primary" title="Tambah Taruna PDLT "><i
                                 class="nav-icon fas fa-plus-circle"></i> </a>
                     </div>
+                    @endif
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
@@ -41,16 +43,16 @@
                                     <th>Pangkat</th>
                                     <th>No AK</th>
                                     <th>Keterangan</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($data as $row)
                                 <tr>
-                                    <td>{{ $row->name }}</td>
+                                    <td>{{ $row->nama }}</td>
                                     <td>{{ $row->pangkat }}</td>
                                     <td>{{ $row->no_ak }}</td>
                                     <td>{{ date('d-M-y', strtotime($row->keterangan)) }}</td>
+                                    @if(Auth::user()->roles == 'ADMIN')
                                     <td>
                                         <a href="{{ route('pdlts.edit', $row->id) }}" class="btn btn-success btn-sm" title="Ubah">
                                             <i class="fa fa-edit"></i></a>
@@ -63,6 +65,7 @@
                                             </button>
                                         </form>
                                     </td>
+                                    @endif
                                 </tr>
                                 @empty
                                 <tr>
