@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\BorrowController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ScheduleController;
@@ -34,8 +33,7 @@ Route::prefix('/')
     ->group(function(){
         Route::get('/',[DashboardController::class,'index'])->name('dashboard');
         Route::resource('users', UserController::class);
-        Route::resource('books', BookController::class);
-        Route::resource('borrows', BorrowController::class);
+       
         Route::resource('items', ItemController::class);
 
         Route::resource('apels', ApelController::class);
