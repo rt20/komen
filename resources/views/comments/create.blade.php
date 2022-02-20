@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Daftar Menu Makanan')
+@section('title','Tambah Komentar')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Daftar Menu Makanan</h1>
+                    <h1>Tambah Komentar</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('makanans.index') }}">Daftar Menu Makanan</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('comments.index') }}">Komentar</a></li>
                         <li class="breadcrumb-item active">Tambah</li>
                     </ol>
                 </div>
@@ -47,43 +47,45 @@
                         </div>
                     </div>
                     @endif
-                    <form class="w-full" action="{{ route('makanans.store') }}" method="post"
+                    <form class="w-full" action="{{ route('comment.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-2">
-                                Nama Menu*
+                                Nama*
                             </div>
                             <div class="col-sm-5">
-                            <input type="text" name="nama" placeholder="Nama Makanan" class="form-control"
+                            <input type="text" name="nama" class="form-control" placeholder="Nama"
                                 style="width: 100%;" value="{{old('nama')}} " required>
                             </div></br>
-                        </div>
-                        <br>
+                        </div><br>
                         <div class="row">
                             <div class="col-sm-2">
-                                Waktu
+                                Pangkat
                             </div>
                             <div class="col-sm-5">
-                            <select name="waktu" class="form-control form-control-sm" required>
-                                <option value="">- Pilih Waktu Makan</option>
-                                <option value="pagi">Makan Pagi</option>
-                                <option value="siang">Makan Siang</option>
-                                <option value="malam">Makan Malam</option>
-                            </select>
+                            <input type="text" name="pangkat" class="form-control" placeholder="Pangkat"
+                                style="width: 100%;" value="{{old('pangkat')}} ">
                             </div></br>
-                        </div>
-                        <br>
+                        </div><br>
                         <div class="row">
                             <div class="col-sm-2">
-                                Keterangan
+                                No AK
                             </div>
                             <div class="col-sm-5">
-                            <input type="text" name="keterangan" class="form-control"
-                                style="width: 100%;" value="{{old('keterangan')}} ">
+                            <input type="text" name="no_ak" class="form-control" placeholder="No AK"
+                                style="width: 100%;" value="{{old('no_ak')}} ">
                             </div></br>
-                        </div>
-                       
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                Kelas
+                            </div>
+                            <div class="col-sm-5">
+                            <input type="text" name="kelas" class="form-control" placeholder="Kelas"
+                                style="width: 100%;" value="{{old('kelas')}} ">
+                            </div></br>
+                        </div><br>
                         <div class="row">
                             <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full px-3 text-right">

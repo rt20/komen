@@ -19,7 +19,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="/" class="nav-link">
+            <a href="/admin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -46,66 +46,10 @@
           </li>
           @endif
           <li class="nav-item has-treeview">
-            <a href="{{ route('schedules.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-calendar"></i>
+            <a href="{{ route('comments.index') }}" class="nav-link">
+              <i class="nav-icon fa fa-comments"></i>
               <p>
-                Jadwal Kegiatan
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('apels.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Kekuatan Apel
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('makanans.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-clipboard-list"></i>
-              <p>
-                Menu Makanan
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('inventaris.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-tasks"></i>
-              <p>
-                Daftar Kerusakan Inventaris
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('sakits.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-procedures"></i>
-              <p>
-                Taruna Sakit
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('dinas.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-street-view"></i>
-              <p>
-                Taruna Dinas
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('pdlts.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-running"></i>
-              <p>
-                Taruna PDLT
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('puasas.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-ban"></i>
-              <p>
-                Taruna Puasa
+                Komentar
               </p>
             </a>
           </li>

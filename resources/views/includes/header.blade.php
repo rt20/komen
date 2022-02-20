@@ -8,10 +8,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-            <img src="{{ asset('img/logo_aau.png') }}" width='50' height='75'>
+            
       </li>
       <li class="nav-item d-none d-sm-inline-block nav-link">
-      <h5><b>Sistem Informasi Dinas Jaga Taruna</b></h5>
+      
       </li>
         </ul>
        

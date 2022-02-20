@@ -31,13 +31,7 @@
                 <!-- /.col -->
                 <div class="col-12">
             <!-- small box -->
-            <div class="callout callout-info">
-            <div class="row">
-            <img src="{{ asset('img/logo_aau.png') }}" width='150' height='200'>
-              <h1>Dinas Jaga Taruna<br>
-              Akademi Angkatan Udara</h1>
-            </div>
-            </div>
+           
                 <!-- /.col -->
             </div>
             <!-- /.row -->

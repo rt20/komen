@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pdlt;
-use App\Models\User;
-
 use Illuminate\Http\Request;
 
 use DB;
+use App\Models\Comment;
 
-class PdltController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +16,10 @@ class PdltController extends Controller
      */
     public function index()
     {
-        $data = DB::table('pdlts')
+        $data = DB::table('comments')
+                -> orderBy('id', 'desc')
                 ->paginate(10);
-
-        return view('pdlts.index', compact('data'));
+        return view('comments.index', compact('data'));
     }
 
     /**
@@ -31,8 +29,7 @@ class PdltController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('pdlts.create', compact('users'));
+        //
     }
 
     /**
@@ -45,13 +42,9 @@ class PdltController extends Controller
     {
         $data = $request->all();
         
-            Pdlt::create($data);
-        
-     
-        # Tampilin flash message
-        flash('Selamat data telah berhasil ditambahkan')->success();
-        
-        return redirect()->route('pdlts.index');
+            Comment::create($data);
+// dd($data);
+        return redirect('/');
     }
 
     /**
@@ -71,14 +64,9 @@ class PdltController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pdlt $pdlt)
+    public function edit($id)
     {
-        $users = User::all();
-
-        return view('pdlts.edit',[
-            'pdlt' => $pdlt,
-            'user' => $users
-        ]);
+        //
     }
 
     /**
@@ -88,13 +76,9 @@ class PdltController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pdlt $pdlt)
+    public function update(Request $request, $id)
     {
-        $row = $request->all();
-
-        $pdlt->update($row);
-
-        return redirect()->route('pdlts.index');
+        //
     }
 
     /**
@@ -103,10 +87,10 @@ class PdltController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pdlt $pdlt)
+    public function destroy(Comment $comment)
     {
-        $pdlt->delete();
+        $comment->delete();
         flash('Data berhasil dihapus')->error();
-        return redirect()->route('pdlts.index');
+        return redirect()->route('comments.index');
     }
 }

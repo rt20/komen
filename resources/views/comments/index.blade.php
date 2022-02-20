@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Taruna Sakit')
+@section('title','Komentar')
 
 @section('content')
 
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Taruna Sakit</h1>
+                    <h1>Komentar</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Taruna Sakit</li>
+                        <li class="breadcrumb-item active">Komentar</li>
                     </ol>
                 </div>
             </div>
@@ -28,37 +28,27 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                @if(Auth::user()->roles == 'ADMIN')
-                    <div class="card-header">
-                        <a href="{{ route('sakits.create') }}" class="btn btn-primary" title="Tambah Taruna Sakit"><i
-                                class="nav-icon fas fa-plus-circle"></i> </a>
-                    </div>
-                    @endif
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Pangkat</th>
-                                    <th>No AK</th>
-                                    <th>Status</th>
-                                    <th>Keterangan</th>
+                                    <th>Pesan</th>
+                                    <th>Kehadiran</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($data as $row)
                                 <tr>
                                     <td>{{ $row->nama }}</td>
-                                    <td>{{ $row->pangkat }}</td>
-                                    <td>{{ $row->no_ak }}</td>
-                                    <td>{{ $row->status }}</td>
-                                    <td>{{ $row->keterangan }}</td>
+                                    <td>{{ $row->pesan }}</td>
+                                    <td>{{ $row->kehadiran }}</td>
                                     @if(Auth::user()->roles == 'ADMIN')
                                     <td>
-                                        <a href="{{ route('sakits.edit', $row->id) }}" class="btn btn-success btn-sm" title="Ubah">
-                                            <i class="fa fa-edit"></i></a>
-                                        <form action="{{ route('sakits.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
+                                
+                                        <form action="{{ route('comments.destroy', $row->id)}}" method="post" class="d-inline" title="Hapus">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm "
