@@ -4,7 +4,7 @@
 <head>
     @include('includes.meta')
 
-    <title>@yield('title') | Sistem Informasi Dinas Jaga Taruna</title>
+    <title>@yield('title') | Komentar</title>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" href="">
