@@ -3,7 +3,7 @@
     <head>
         @include('includes.meta')
 
-        <title>@yield('title') | e-Office</title>
+        <title>@yield('title') | Komentar</title>
  
         <!-- Favicon -->
         <link rel="apple-touch-icon" href="">
